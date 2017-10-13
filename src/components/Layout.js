@@ -1,7 +1,19 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import PropTypes from 'prop-types'
+import { Text, View } from 'react-native'
+import { connect } from 'react-redux'
 
-export default class Layout extends React.Component {
+import styles from '../styles'
+
+import { getProfile, getUserFeedPhotos, getPopularFeedPhotos } from '../actions'
+
+class Layout extends React.Component {
+  componentDidMount() {
+    const { getProfile, getUserFeedPhotos, getPopularFeedPhotos } = this.props
+    getProfile()
+    getUserFeedPhotos()
+    getPopularFeedPhotos()
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -11,11 +23,25 @@ export default class Layout extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+Layout.propTypes = {
+  getProfile: PropTypes.func.isRequired,
+  getUserFeedPhotos: PropTypes.func.isRequired,
+  getPopularFeedPhotos: PropTypes.func.isRequired,
+}
+
+const mapDispatchToProps = dispatch => ({
+  getProfile() {
+    dispatch(getProfile())
+  },
+  getUserFeedPhotos() {
+    dispatch(getUserFeedPhotos())
+  },
+  getPopularFeedPhotos() {
+    dispatch(getPopularFeedPhotos())
   },
 })
+// const mapStateToProps = state => ({
+//
+// });
+
+export default connect(null, mapDispatchToProps)(Layout)

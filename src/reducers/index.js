@@ -1,8 +1,11 @@
-
 import { combineReducers } from 'redux'
 
-const sampleReducer = (state = 0) => state
+import profile from './profile'
+import userPhotos from './userPhotos'
+import popularPhotos from './popularPhotos'
 
 export default combineReducers({
-  zero: sampleReducer
+  profile,
+  userPhotos,
+  popularPhotos
 })

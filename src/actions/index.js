@@ -2,6 +2,27 @@ import { post } from 'axios'
 
 const _SessionToken = `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOjI3MDc3OTgsImV4cCI6MTUzOTUzNTI1OTM2OH0.UK2qP1yk9QLk_Bkx1Ly0RPaitRYtec8ojZhzYRc0D-g`
 
+function gotProfile(data) {
+  return {
+    type: 'GOT_PROFILE',
+    payload: data
+  }
+}
+
+function gotUserFeedPhotos(data) {
+  return {
+    type: 'GOT_USER_FEED_PHOTOS',
+    payload: data
+  }
+}
+
+function gotPopularFeedPhotos(data) {
+  return {
+    type: 'GOT_POPULAR_FEED_PHOTOS',
+    payload: data
+  }
+}
+
 export function getProfile() {
   return (dispatch) => {
     post('http://api.pumpup.com/1/classes/User/318381', {
@@ -9,9 +30,7 @@ export function getProfile() {
       _version: '5.0.5',
       _SessionToken
     })
-      .then((res) => {
-        // console.log('res.data:', res.data)
-      })
+      .then((res) => dispatch(gotProfile(res.data)))
       .catch((err) => console.error('Error getting profile:', err))
   }
 }
@@ -26,9 +45,7 @@ export function getUserFeedPhotos() {
       _version: '5.0.5',
       _SessionToken
     })
-      .then((res) => {
-        // console.log('res.data:', res.data)
-      })
+      .then((res) => dispatch(gotUserFeedPhotos(res.data)))
       .catch((err) => console.error('Error getting profile:', err))
   }
 }
@@ -42,9 +59,7 @@ export function getPopularFeedPhotos() {
       _version: '5.0.5',
       _SessionToken
     })
-      .then((res) => {
-        console.log('res.data:', res.data)
-      })
+      .then((res) => dispatch(gotPopularFeedPhotos(res.data)))
       .catch((err) => console.error('Error getting profile:', err))
   }
 }

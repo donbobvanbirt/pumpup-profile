@@ -5,7 +5,11 @@ import { connect } from 'react-redux'
 
 import styles from '../styles'
 
-import { getProfile, getUserFeedPhotos, getPopularFeedPhotos } from '../actions'
+import {
+  getProfile,
+  getUserFeedPhotos,
+  getPopularFeedPhotos
+} from '../actions'
 
 class Layout extends React.Component {
   componentDidMount() {
@@ -15,9 +19,13 @@ class Layout extends React.Component {
     getPopularFeedPhotos()
   }
   render() {
+    const { profile, userPhotos, popularPhotos } = this.props
+    console.log('profile:', profile)
+    console.log('userPhotos:', userPhotos)
+    console.log('popularPhotos:', popularPhotos)
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <Text>Open up App.js to start working on your app!!!!!!</Text>
       </View>
     )
   }
@@ -27,6 +35,9 @@ Layout.propTypes = {
   getProfile: PropTypes.func.isRequired,
   getUserFeedPhotos: PropTypes.func.isRequired,
   getPopularFeedPhotos: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
+  userPhotos: PropTypes.object.isRequired,
+  popularPhotos: PropTypes.object.isRequired,
 }
 
 const mapDispatchToProps = dispatch => ({
@@ -40,8 +51,15 @@ const mapDispatchToProps = dispatch => ({
     dispatch(getPopularFeedPhotos())
   },
 })
-// const mapStateToProps = state => ({
-//
-// });
 
-export default connect(null, mapDispatchToProps)(Layout)
+const mapStateToProps = ({
+  profile,
+  userPhotos,
+  popularPhotos
+}) => ({
+  profile,
+  userPhotos,
+  popularPhotos
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout)

@@ -2,8 +2,11 @@ import React          from 'react'
 import PropTypes      from 'prop-types'
 import { Text, View } from 'react-native'
 import { connect }    from 'react-redux'
+import _              from 'lodash'
 
 import styles from '../styles'
+
+import Header from './Header'
 
 import {
   getProfile,
@@ -32,13 +35,19 @@ class Layout extends React.Component {
   render() {
 
     const { profile, userPhotos, popularPhotos } = this.props
-    console.log('profile:', profile)
-    console.log('userPhotos:', userPhotos)
-    console.log('popularPhotos:', popularPhotos)
+    console.log('profile.bio:', profile.bio)
+    // console.log('userPhotos:', userPhotos)
+    // console.log('popularPhotos:', popularPhotos)
+    if (_.isEmpty(profile)) {
+      return (
+        <Text>loading...</Text>
+      )
+    }
 
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <Header bio={profile.bio} name={profile.name} profileImage={profile.profileImage} />
+        {/* <Text>Open up App.js to start working on your app!</Text> */}
       </View>
     )
   }

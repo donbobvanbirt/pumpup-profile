@@ -1,12 +1,13 @@
-import React          from 'react'
-import PropTypes      from 'prop-types'
-import { Text, View } from 'react-native'
-import { connect }    from 'react-redux'
-import _              from 'lodash'
+import React                from 'react'
+import PropTypes            from 'prop-types'
+import { Text, ScrollView } from 'react-native'
+import { connect }          from 'react-redux'
+import _                    from 'lodash'
 
 import styles from '../styles'
 
 import Header from './Header'
+import Grid   from './Grid'
 
 import {
   getProfile,
@@ -26,7 +27,7 @@ class Layout extends React.Component {
 
     getProfile()
     // getUserFeedPhotos()
-    // getPopularFeedPhotos()
+    getPopularFeedPhotos()
 
   }
 
@@ -35,20 +36,20 @@ class Layout extends React.Component {
   render() {
 
     const { profile, userPhotos, popularPhotos } = this.props
-    console.log('profile.bio:', profile.bio)
+    // console.log('profile.bio:', profile.bio)
     // console.log('userPhotos:', userPhotos)
-    // console.log('popularPhotos:', popularPhotos)
-    if (_.isEmpty(profile)) {
+    if (_.isEmpty(profile) || _.isEmpty(popularPhotos)) {
       return (
         <Text>loading...</Text>
       )
     }
+    console.log('popularPhotos.result.posts:', popularPhotos.result.posts)
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Header bio={profile.bio} name={profile.name} profileImage={profile.profileImage} />
-        {/* <Text>Open up App.js to start working on your app!</Text> */}
-      </View>
+        <Grid images={popularPhotos.result.posts} />
+      </ScrollView>
     )
   }
 }

@@ -43,5 +43,11 @@ export default StyleSheet.create({
   lineBreak: {
     width  : 1500,
     height : 1
+  },
+  grid: {
+    flexDirection : 'row',
+    alignItems    : 'flex-start',
+    flexWrap      : 'wrap',
+    padding       : 10,
   }
 })

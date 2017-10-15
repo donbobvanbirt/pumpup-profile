@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     flex      : 1,
-    marginTop : 50,
     // backgroundColor : '#fff',
     // alignItems      : 'center',
     // justifyContent  : 'center',
@@ -13,11 +12,11 @@ export default StyleSheet.create({
     flexDirection     : 'row',
     borderBottomColor : 'gray',
     borderBottomWidth : 1,
+    marginTop : 25,
   },
   profileImage: {
     height : 100,
     width  : 100,
-    // borderRadius: 50,
   },
   headerContent: {
     marginTop      : 11,
@@ -44,9 +43,6 @@ export default StyleSheet.create({
     width  : 1500,
     height : 1
   },
-  // gridContainer: {
-  //
-  // }
   grid: {
     flexDirection : 'row',
     alignItems    : 'flex-start',
@@ -56,5 +52,13 @@ export default StyleSheet.create({
   },
   gridImageContainer: {
     padding: 1
+  },
+  imageScroll: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  scrollImageContainer: {
+    flex: 1,
+    alignSelf: 'stretch'
   }
 })

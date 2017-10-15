@@ -7,6 +7,7 @@ import _                    from 'lodash'
 import styles from '../styles'
 
 import Header from './Header'
+import ImageScroll from './ImageScroll'
 import Grid   from './Grid'
 
 import {
@@ -26,7 +27,7 @@ class Layout extends React.Component {
     } = this.props
 
     getProfile()
-    // getUserFeedPhotos()
+    getUserFeedPhotos()
     getPopularFeedPhotos()
 
   }
@@ -36,18 +37,20 @@ class Layout extends React.Component {
   render() {
 
     const { profile, userPhotos, popularPhotos } = this.props
-    // console.log('profile.bio:', profile.bio)
-    // console.log('userPhotos:', userPhotos)
-    if (_.isEmpty(profile) || _.isEmpty(popularPhotos)) {
+    console.log('userPhotos:', userPhotos)
+    if (_.isEmpty(profile) || _.isEmpty(popularPhotos) || _.isEmpty(userPhotos)) {
       return (
         <Text>loading...</Text>
       )
     }
-    console.log('popularPhotos.result.posts:', popularPhotos.result.posts)
 
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView
+        style={styles.container}
+        showsVerticalScrollIndicator={false}
+      >
         <Header bio={profile.bio} name={profile.name} profileImage={profile.profileImage} />
+        <ImageScroll images={userPhotos.result.posts} />
         <Grid images={popularPhotos.result.posts} />
       </ScrollView>
     )

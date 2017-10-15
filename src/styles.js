@@ -39,9 +39,9 @@ export default StyleSheet.create({
     color    : 'blue',
     fontSize : 12,
   },
-  lineBreak: {
-    width  : 1500,
-    height : 1
+  lineBreak : {
+    width   : 1500,
+    height  : 1
   },
   grid: {
     flexDirection : 'row',

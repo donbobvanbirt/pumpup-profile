@@ -1,11 +1,11 @@
 import React           from 'react'
 import PropTypes       from 'prop-types'
-import { View, Image } from 'react-native'
-import ResponsiveImage from 'react-native-responsive-image'
+import { View, Image, Dimensions } from 'react-native'
 
 import styles from '../../styles'
 
-
+const width = Dimensions.get('window').width
+const oneThird = width * 0.3
 
 const Grid = ({ images }) => {
 
@@ -14,10 +14,9 @@ const Grid = ({ images }) => {
       {
         images.map((image) => (
           <View key={image.objectId} style={styles.gridImageContainer}>
-            <ResponsiveImage
+            <Image
               source={{ uri: image.thumbnail }}
-              initWidth='135'
-              initHeight='135'
+              style={{ width: oneThird, height: oneThird }}
             />
           </View>
         ))

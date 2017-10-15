@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes            from 'prop-types'
 import {
   Image,
   View,
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
 
 
 
-export default class ImageSlider extends Component {
+export default class ImageScroll extends Component {
   state = {
     position  : 0,
     scrolling : false,
@@ -60,21 +61,22 @@ export default class ImageSlider extends Component {
   componentWillMount() {
     // set function to trigger after scroll release
     this.panResponder = PanResponder.create({
-      onPanResponderRelease: this.release.bind(this)
+      // onPanResponderTerminate : this.handleRelease.bind(this),
+      onPanResponderRelease   : this.handleRelease.bind(this),
     })
   }
 
 
 
   // insures that the scroll view bounces to next image
-  release(e, gestureState) {
+  handleRelease(e, gestureState) {
     const { dx, vx }       = gestureState
     const { position }     = this.state
     const { images }       = this.props
     const relativeDistance = dx / width
 
     let change = 0
-
+    console.log('gestureState:', gestureState)
     // check if distance scrolled is more or less that half of screen
     if (relativeDistance < -0.5 || (relativeDistance < 0 && vx <= 0.5)) {
       change = 1
@@ -88,6 +90,11 @@ export default class ImageSlider extends Component {
     }
 
     this.handleScroll(position + change)
+    return true
+  }
+
+  handleEnd(e) {
+    console.log('in handleEnd')
   }
 
 
@@ -124,6 +131,7 @@ export default class ImageSlider extends Component {
           decelerationRate={0.99}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
+
           {...this.panResponder.panHandlers}
           ref={ref => this.handleRef(ref)}
           style={styles.container}>
@@ -131,10 +139,13 @@ export default class ImageSlider extends Component {
             <View
               style={styles.imageContainer}
               key={`scroll-image-${image.objectId}`}
+              {...this.panResponder.panHandlers}
+              onScroll={console.log('in onScroll')}
             >
               <Image
                 source={{ uri: image.thumbnail }}
                 style={styles.image}
+                onTouchEnd={this.handleEnd}
               />
             </View>
           ))}
@@ -156,4 +167,8 @@ export default class ImageSlider extends Component {
       </View>
     )
   }
+}
+
+ImageScroll.propTypes = {
+  images: PropTypes.array.isRequired,
 }

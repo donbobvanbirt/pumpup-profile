@@ -20,20 +20,28 @@ export default StyleSheet.create({
     // borderRadius: 50,
   },
   headerContent: {
-    marginTop: 11,
-    flex: 1,
-    justifyContent: 'flex-start',
+    marginTop      : 11,
+    flex           : 1,
+    justifyContent : 'flex-start',
   },
   name: {
     fontSize: 20,
   },
   bio: {
-    fontSize: 10,
-    display: 'flex',
-    flexDirection: 'row',
+    flexDirection : 'row',
+    alignItems    : 'flex-start',
+    flexWrap      : 'wrap',
+    paddingBottom : 10,
   },
-  bioWord: {},
+  bioWord: {
+    fontSize: 12,
+  },
   bioLink: {
-    color: 'blue'
+    color    : 'blue',
+    fontSize : 12,
+  },
+  lineBreak: {
+    width  : 1500,
+    height : 1
   }
 })

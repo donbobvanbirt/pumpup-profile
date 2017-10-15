@@ -61,8 +61,8 @@ export default class ImageScroll extends Component {
   componentWillMount() {
     // set function to trigger after scroll release
     this.panResponder = PanResponder.create({
-      // onPanResponderTerminate : this.handleRelease.bind(this),
       onPanResponderRelease   : this.handleRelease.bind(this),
+      onPanResponderTerminate : this.handleRelease.bind(this),
     })
   }
 
@@ -76,7 +76,6 @@ export default class ImageScroll extends Component {
     const relativeDistance = dx / width
 
     let change = 0
-    console.log('gestureState:', gestureState)
     // check if distance scrolled is more or less that half of screen
     if (relativeDistance < -0.5 || (relativeDistance < 0 && vx <= 0.5)) {
       change = 1
@@ -91,10 +90,6 @@ export default class ImageScroll extends Component {
 
     this.handleScroll(position + change)
     return true
-  }
-
-  handleEnd(e) {
-    console.log('in handleEnd')
   }
 
 
@@ -131,7 +126,6 @@ export default class ImageScroll extends Component {
           decelerationRate={0.99}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-
           {...this.panResponder.panHandlers}
           ref={ref => this.handleRef(ref)}
           style={styles.container}>
@@ -140,12 +134,10 @@ export default class ImageScroll extends Component {
               style={styles.imageContainer}
               key={`scroll-image-${image.objectId}`}
               {...this.panResponder.panHandlers}
-              onScroll={console.log('in onScroll')}
             >
               <Image
                 source={{ uri: image.thumbnail }}
                 style={styles.image}
-                onTouchEnd={this.handleEnd}
               />
             </View>
           ))}

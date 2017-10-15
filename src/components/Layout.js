@@ -25,8 +25,8 @@ class Layout extends React.Component {
     } = this.props
 
     getProfile()
-    getUserFeedPhotos()
-    getPopularFeedPhotos()
+    // getUserFeedPhotos()
+    // getPopularFeedPhotos()
 
   }
 

@@ -6,7 +6,7 @@ import { post } from 'axios'
 const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOjI3MDc3OTgsImV4cCI6MTUzOTUzNTI1OTM2OH0.UK2qP1yk9QLk_Bkx1Ly0RPaitRYtec8ojZhzYRc0D-g'
 
 function gotProfile(data) {
-
+  console.log('profile data:', data)
   return {
     type    : 'GOT_PROFILE',
     payload : data
@@ -39,7 +39,7 @@ function gotPopularFeedPhotos(data) {
 
 
 export function getProfile() {
-
+  console.log('in getProfile')
   return (dispatch) => {
 
     post('http://api.pumpup.com/1/classes/User/318381', {
@@ -47,7 +47,11 @@ export function getProfile() {
       _version      : '5.0.5',
       _SessionToken : token,
     })
-      .then((res) => dispatch(gotProfile(res.data)))
+      .then((res) => {
+        console.log('res:', res)
+        console.log('res.data:', res.data)
+        return dispatch(gotProfile(res.data))
+      })
       .catch((err) => console.error('Error getting profile:', err))
 
   }

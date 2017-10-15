@@ -4,10 +4,12 @@ import { Text, View, Image } from 'react-native'
 
 import styles from '../../styles'
 
+import Bio from './Bio'
+
 
 
 const Header = ({ bio, name, profileImage }) => {
-  const formattedBio = bio ? bio.replace(/\n\s*\n/g, '\n') : ''
+
   return (
     <View style={styles.header}>
       <Image
@@ -16,7 +18,7 @@ const Header = ({ bio, name, profileImage }) => {
       />
       <View style={styles.headerContent}>
         <Text style={styles.name}>{name}</Text>
-        <Text style={styles.bio}>{formattedBio}</Text>
+        <Bio bio={bio} />
       </View>
     </View>
   )

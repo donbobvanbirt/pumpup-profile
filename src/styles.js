@@ -20,12 +20,16 @@ export default StyleSheet.create({
     // borderRadius: 50,
   },
   headerContent: {
-    marginTop: 15,
+    marginTop: 11,
+    flex: 1,
+    justifyContent: 'flex-start',
   },
   name: {
     fontSize: 20,
   },
   bio: {
     fontSize: 10,
+    display: 'flex',
+    flexDirection: 'row',
   },
 })

@@ -57,8 +57,4 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
   },
-  scrollImageContainer: {
-    flex: 1,
-    alignSelf: 'stretch'
-  }
 })

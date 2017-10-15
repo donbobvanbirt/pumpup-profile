@@ -37,7 +37,7 @@ class Layout extends React.Component {
   render() {
 
     const { profile, userPhotos, popularPhotos } = this.props
-    console.log('userPhotos:', userPhotos)
+    console.log('popularPhotos:', popularPhotos)
     if (_.isEmpty(profile) || _.isEmpty(popularPhotos) || _.isEmpty(userPhotos)) {
       return (
         <Text>loading...</Text>

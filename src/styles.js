@@ -32,4 +32,8 @@ export default StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
   },
+  bioWord: {},
+  bioLink: {
+    color: 'blue'
+  }
 })

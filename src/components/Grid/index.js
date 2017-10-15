@@ -1,6 +1,7 @@
 import React           from 'react'
 import PropTypes       from 'prop-types'
 import { View, Image } from 'react-native'
+import ResponsiveImage from 'react-native-responsive-image';
 
 import styles from '../../styles'
 
@@ -12,11 +13,13 @@ const Grid = ({ images }) => {
     <View style={styles.grid}>
       {
         images.map((image) => (
-          <Image
-            source={{ uri: image.thumbnail }}
-            key={image.objectId}
-            style={styles.profileImage}
-          />
+          <View key={image.objectId} style={styles.gridImageContainer}>
+            <ResponsiveImage
+              source={{ uri: image.thumbnail }}
+              initWidth='135'
+              initHeight='135'
+            />
+          </View>
         ))
       }
     </View>

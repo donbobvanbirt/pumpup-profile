@@ -44,10 +44,17 @@ export default StyleSheet.create({
     width  : 1500,
     height : 1
   },
+  // gridContainer: {
+  //
+  // }
   grid: {
     flexDirection : 'row',
     alignItems    : 'flex-start',
+    justifyContent: 'center',
     flexWrap      : 'wrap',
-    padding       : 10,
+    flex          : 1,
+  },
+  gridImageContainer: {
+    padding: 1
   }
 })

@@ -1,13 +1,15 @@
-// import React from "react"
+import React from 'react'
 import should from 'should'
 import Grid from './index'
+import enzyme, { mount, render, shallow } from 'enzyme'
 
-const bool = true
+// enzyme.configure({ adapter: new Adapter() })
 
 describe('Grid', () => {
+  const wrapper = shallow(<Grid images={[]} />)
   console.log('in describe')
-  it('should be true', () => {
-    should.equal(bool, true)
+  it('successfully renders', () => {
+    should.equal(wrapper.length, 1)
 
   })
 })

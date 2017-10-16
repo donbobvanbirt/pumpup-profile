@@ -1,14 +1,15 @@
 import React                from 'react'
 import PropTypes            from 'prop-types'
-import { Text, ScrollView } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import { connect }          from 'react-redux'
 import _                    from 'lodash'
+import GiftedSpinner        from 'react-native-gifted-spinner'
 
 import styles from '../styles'
 
-import Header from './Header'
+import Header      from './Header'
 import ImageScroll from './ImageScroll'
-import Grid   from './Grid'
+import Grid        from './Grid'
 
 import {
   getProfile,
@@ -32,7 +33,6 @@ class Layout extends React.Component {
     getProfile()
     getUserFeedPhotos()
     getPopularFeedPhotos()
-
   }
 
 
@@ -48,7 +48,9 @@ class Layout extends React.Component {
 
     if (_.isEmpty(profile) || _.isEmpty(popularPhotos) || _.isEmpty(userPhotos)) {
       return (
-        <Text>loading...</Text>
+        <View style={styles.spinnerContainer}>
+          <GiftedSpinner />
+        </View>
       )
     }
 

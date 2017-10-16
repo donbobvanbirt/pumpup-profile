@@ -5,7 +5,7 @@ import { View, Image, Dimensions } from 'react-native'
 import styles from '../../styles'
 
 const width = Dimensions.get('window').width
-const oneThird = width * 0.3
+const oneThird = width * 0.32
 
 const Grid = ({ images }) => {
 

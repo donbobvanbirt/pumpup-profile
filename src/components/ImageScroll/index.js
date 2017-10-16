@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
 export default class ImageScroll extends Component {
   state = {
     position  : 0,
-    scrolling : false,
   }
 
   componentWillMount() {

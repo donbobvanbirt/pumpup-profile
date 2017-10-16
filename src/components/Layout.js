@@ -13,8 +13,11 @@ import Grid   from './Grid'
 import {
   getProfile,
   getUserFeedPhotos,
-  getPopularFeedPhotos
+  getPopularFeedPhotos,
+  toggleBio,
 } from '../actions'
+
+import { profileSelector } from '../selectors'
 
 class Layout extends React.Component {
 
@@ -36,8 +39,13 @@ class Layout extends React.Component {
 
   render() {
 
-    const { profile, userPhotos, popularPhotos } = this.props
-    console.log('popularPhotos:', popularPhotos)
+    const {
+      profile,
+      userPhotos,
+      popularPhotos,
+      toggleBio
+    } = this.props
+
     if (_.isEmpty(profile) || _.isEmpty(popularPhotos) || _.isEmpty(userPhotos)) {
       return (
         <Text>loading...</Text>
@@ -49,7 +57,13 @@ class Layout extends React.Component {
         style={styles.container}
         showsVerticalScrollIndicator={false}
       >
-        <Header bio={profile.bio} name={profile.name} profileImage={profile.profileImage} />
+        <Header
+          bio         ={profile.bio}
+          name        ={profile.name}
+          profileImage={profile.profileImage}
+          toggleBio   ={toggleBio}
+          truncateBio ={profile.truncateBio}
+        />
         <ImageScroll images={userPhotos.result.posts} />
         <Grid images={popularPhotos.result.posts} />
       </ScrollView>
@@ -66,6 +80,7 @@ Layout.propTypes = {
   profile              : PropTypes.object.isRequired,
   userPhotos           : PropTypes.object.isRequired,
   popularPhotos        : PropTypes.object.isRequired,
+  toggleBio            : PropTypes.func.isRequired,
 }
 
 
@@ -80,16 +95,15 @@ const mapDispatchToProps = dispatch => ({
   getPopularFeedPhotos() {
     dispatch(getPopularFeedPhotos())
   },
+  toggleBio() {
+    dispatch(toggleBio())
+  },
 })
 
-const mapStateToProps = ({
-  profile,
-  userPhotos,
-  popularPhotos
-}) => ({
-  profile,
-  userPhotos,
-  popularPhotos
+const mapStateToProps = (state) => ({
+  profile       : profileSelector(state),
+  userPhotos    : state.userPhotos,
+  popularPhotos : state.popularPhotos
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout)

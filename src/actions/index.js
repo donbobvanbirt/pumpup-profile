@@ -38,8 +38,24 @@ function gotPopularFeedPhotos(data) {
 
 
 
+function togglingBio() {
+
+  return {
+    type: 'TOGGLE_BIO',
+    payload: true,
+  }
+}
+
+export function toggleBio() {
+
+  return (dispatch) => {
+    dispatch(togglingBio())
+  }
+}
+
+
+
 export function getProfile() {
-  console.log('in getProfile')
   return (dispatch) => {
 
     post('http://api.pumpup.com/1/classes/User/318381', {

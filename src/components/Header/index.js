@@ -8,7 +8,13 @@ import Bio from './Bio'
 
 
 
-const Header = ({ bio, name, profileImage }) => {
+const Header = ({
+  bio,
+  name,
+  profileImage,
+  toggleBio,
+  truncateBio
+}) => {
 
   return (
     <View style={styles.header}>
@@ -18,16 +24,22 @@ const Header = ({ bio, name, profileImage }) => {
       />
       <View style={styles.headerContent}>
         <Text style={styles.name}>{name}</Text>
-        <Bio bio={bio} />
+        <Bio
+          bio={bio}
+          toggleBio={toggleBio}
+          truncateBio={truncateBio}
+        />
       </View>
     </View>
   )
 }
 
 Header.propTypes = {
-  bio: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  profileImage: PropTypes.string.isRequired,
+  bio          : PropTypes.string.isRequired,
+  name         : PropTypes.string.isRequired,
+  profileImage : PropTypes.string.isRequired,
+  toggleBio    : PropTypes.func.isRequired,
+  truncateBio  : PropTypes.bool.isRequired,
 }
 
 export default Header

@@ -1,9 +1,7 @@
 import React from 'react'
 import should from 'should'
 import Grid from './index'
-import enzyme, { mount, render, shallow } from 'enzyme'
-
-// enzyme.configure({ adapter: new Adapter() })
+import { mount, render, shallow } from 'enzyme'
 
 describe('Grid', () => {
   const wrapper = shallow(<Grid images={[]} />)

@@ -7,10 +7,8 @@ import {
   popularPhotosSelector,
 } from './index'
 
-const bioPlaceholder = `012345678901234567890
-123456789012345678901234567890123456789012345678901234567890
-123456789012345678901234567890123456789012345678901234567890
-12345678901234567890123456789012345678901234567890123456789`
+const sampleStr = '012345678901234567890123456789'
+const bioPlaceholder = `${sampleStr}${sampleStr}${sampleStr}${sampleStr}`
 
 const state = {
   profile: {
@@ -51,7 +49,7 @@ describe('selectors', () => {
 
   it('truncates bio', () => {
     let profile = profileSelector(getState())
-    should.equal(profile.bio.length, 203)
+    should.equal(profile.bio.length, 120)
 
     profile = profileSelector(getState({ bio: { truncateBio: true }}))
     should.equal(profile.bio.length, 100)

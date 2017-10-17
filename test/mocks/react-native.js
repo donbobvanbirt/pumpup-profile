@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 import createReactClass from 'create-react-class'
-import PT from 'prop-types'
+import pt from 'prop-types'
 
-const RN = React;
+const ReactNativeMock = React
 
-export const PropTypes = PT;
+export const PropTypes = pt
 
 export const StyleSheet = {
   create: (style) => style
@@ -15,25 +15,25 @@ export const Dimensions = {
 }
 
 const createComponent = (type) => {
-  console.log('type:', type)
+
   return createReactClass({
     displayName: type,
     propTypes: {
       children: PropTypes.node
     },
     render() {
-      return <div {...this.props}>{this.props.children}</div>;
+      return <div {...this.props}>{this.props.children}</div>
     }
-  });
-};
+  })
+}
 
-RN.View = createComponent("View");
-RN.Text = createComponent("Text");
-RN.ActivityIndicatorIOS = createComponent("ActivityIndicatorIOS");
-RN.Image = createComponent("Image");
-RN.TouchableHighlight = createComponent("TouchableHighlight");
-RN.ScrollView = createComponent("ScrollView");
-RN.StyleSheet = StyleSheet
-RN.Dimensions = Dimensions
+ReactNativeMock.View                 = createComponent('View')
+ReactNativeMock.Text                 = createComponent('Text')
+ReactNativeMock.ActivityIndicatorIOS = createComponent('ActivityIndicatorIOS')
+ReactNativeMock.Image                = createComponent('Image')
+ReactNativeMock.TouchableHighlight   = createComponent('TouchableHighlight')
+ReactNativeMock.ScrollView           = createComponent('ScrollView')
+ReactNativeMock.StyleSheet           = StyleSheet
+ReactNativeMock.Dimensions           = Dimensions
 
-export default RN;
+export default ReactNativeMock

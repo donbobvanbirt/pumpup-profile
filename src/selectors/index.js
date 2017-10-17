@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import _                  from 'lodash'
+import { isEmpty }        from 'lodash'
 
 const profile  = state => state.profile
 const truncate = state => state.bio
@@ -8,7 +8,7 @@ export const profileSelector = createSelector(
   profile,
   truncate,
   (profile, truncate) => {
-    if (_.isEmpty(profile)) {
+    if (isEmpty(profile)) {
       return {}
     }
 
@@ -23,3 +23,7 @@ export const profileSelector = createSelector(
     }
   }
 )
+
+export const userPhotosSelector = state => state.userPhotos
+
+export const popularPhotosSelector = state => state.popularPhotos

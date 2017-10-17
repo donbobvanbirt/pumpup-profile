@@ -18,7 +18,11 @@ import {
   toggleBio,
 } from '../actions'
 
-import { profileSelector } from '../selectors'
+import {
+  profileSelector,
+  userPhotosSelector,
+  popularPhotosSelector,
+} from '../selectors'
 
 class Layout extends React.Component {
 
@@ -104,8 +108,8 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = (state) => ({
   profile       : profileSelector(state),
-  userPhotos    : state.userPhotos,
-  popularPhotos : state.popularPhotos
+  userPhotos    : userPhotosSelector(state),
+  popularPhotos : popularPhotosSelector(state),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout)

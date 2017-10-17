@@ -10,6 +10,10 @@ export const StyleSheet = {
   create: (style) => style
 }
 
+export const PanResponder = {
+  create: (obj) => obj
+}
+
 export const Dimensions = {
   get: () => ({ width: 350 })
 }
@@ -47,5 +51,6 @@ ReactNativeMock.TouchableHighlight   = TouchableHighlight
 ReactNativeMock.ScrollView           = ScrollView
 ReactNativeMock.StyleSheet           = StyleSheet
 ReactNativeMock.Dimensions           = Dimensions
+ReactNativeMock.PanResponder         = PanResponder
 
 export default ReactNativeMock

@@ -1,4 +1,4 @@
-export default function profile(state = { truncateBio: true }, action) {
+export default function bio(state = { truncateBio: true }, action) {
 
   switch (action.type) {
   case 'TOGGLE_BIO':

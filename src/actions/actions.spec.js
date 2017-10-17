@@ -2,7 +2,7 @@
 /*eslint no-undef: ["error", { "typeof": true }] */
 
 import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
+import thunk              from 'redux-thunk'
 
 const mockStore = configureMockStore([thunk])
 
@@ -15,7 +15,7 @@ import {
 
 
 
-// returns promise of action from store
+// returns promise of action from the store
 // allows asyncronous functions to be handled
 function getActionFromStore(store, interval = 1800) {
   return new Promise((res, rej) => {

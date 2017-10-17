@@ -1,14 +1,18 @@
 import { createSelector } from 'reselect'
-import _                  from 'lodash'
+import { isEmpty }        from 'lodash'
+
+import { summarizeString } from '../utils'
 
 const profile  = state => state.profile
 const truncate = state => state.bio
+
+
 
 export const profileSelector = createSelector(
   profile,
   truncate,
   (profile, truncate) => {
-    if (_.isEmpty(profile)) {
+    if (isEmpty(profile)) {
       return {}
     }
 
@@ -18,8 +22,12 @@ export const profileSelector = createSelector(
     return {
       profileImage: profileImage,
       name: name,
-      bio: truncateBio ? bio.slice(0, 100) : bio,
+      bio: truncateBio ? summarizeString(bio) : bio,
       truncateBio,
     }
   }
 )
+
+export const userPhotosSelector = state => state.userPhotos
+
+export const popularPhotosSelector = state => state.popularPhotos

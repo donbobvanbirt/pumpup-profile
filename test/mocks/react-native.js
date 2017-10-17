@@ -1,8 +1,8 @@
-import React from 'react'
+import React            from 'react'
 import createReactClass from 'create-react-class'
-import pt from 'prop-types'
+import pt               from 'prop-types'
 
-const ReactNativeMock = React
+
 
 export const PropTypes = pt
 
@@ -14,8 +14,9 @@ export const Dimensions = {
   get: () => ({ width: 350 })
 }
 
-const createComponent = (type) => {
 
+
+const createComponent = (type) => {
   return createReactClass({
     displayName: type,
     propTypes: {
@@ -27,12 +28,23 @@ const createComponent = (type) => {
   })
 }
 
-ReactNativeMock.View                 = createComponent('View')
-ReactNativeMock.Text                 = createComponent('Text')
-ReactNativeMock.ActivityIndicatorIOS = createComponent('ActivityIndicatorIOS')
-ReactNativeMock.Image                = createComponent('Image')
-ReactNativeMock.TouchableHighlight   = createComponent('TouchableHighlight')
-ReactNativeMock.ScrollView           = createComponent('ScrollView')
+
+
+const ReactNativeMock = React
+
+export const View                 = createComponent('View')
+export const Text                 = createComponent('Text')
+export const ActivityIndicatorIOS = createComponent('ActivityIndicatorIOS')
+export const Image                = createComponent('Image')
+export const TouchableHighlight   = createComponent('TouchableHighlight')
+export const ScrollView           = createComponent('ScrollView')
+
+ReactNativeMock.View                 = View
+ReactNativeMock.Text                 = Text
+ReactNativeMock.ActivityIndicatorIOS = ActivityIndicatorIOS
+ReactNativeMock.Image                = Image
+ReactNativeMock.TouchableHighlight   = TouchableHighlight
+ReactNativeMock.ScrollView           = ScrollView
 ReactNativeMock.StyleSheet           = StyleSheet
 ReactNativeMock.Dimensions           = Dimensions
 

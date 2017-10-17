@@ -16,3 +16,7 @@ global.mount     = mount
 global.render    = render
 global.shallow   = shallow
 global.mockStore = configureMockStore()
+
+require('babel-core/register')({
+  ignore: /node_modules\/(?!react-native-gifted-spinner)/
+})

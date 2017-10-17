@@ -1,8 +1,12 @@
 import { createSelector } from 'reselect'
 import { isEmpty }        from 'lodash'
 
+import { summarizeString } from '../utils'
+
 const profile  = state => state.profile
 const truncate = state => state.bio
+
+
 
 export const profileSelector = createSelector(
   profile,
@@ -18,7 +22,7 @@ export const profileSelector = createSelector(
     return {
       profileImage: profileImage,
       name: name,
-      bio: truncateBio ? bio.slice(0, 100) : bio,
+      bio: truncateBio ? summarizeString(bio) : bio,
       truncateBio,
     }
   }

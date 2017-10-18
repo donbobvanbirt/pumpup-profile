@@ -50,7 +50,11 @@ class Layout extends React.Component {
       toggleBio
     } = this.props
 
-    if (_.isEmpty(profile) || _.isEmpty(popularPhotos) || _.isEmpty(userPhotos)) {
+    if (
+      _.isEmpty(profile) ||
+      _.isEmpty(popularPhotos) ||
+      _.isEmpty(userPhotos)
+    ) {
       return (
         <View style={styles.spinnerContainer}>
           <GiftedSpinner />

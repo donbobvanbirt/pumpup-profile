@@ -22,7 +22,7 @@
     "quotes"                  : [2, "single"],
     "linebreak-style"         : [2, "unix"],
     "max-depth"               : [1, 3],
-    "max-len"                 : [1, 120],
+    "max-len"                 : [1, 80],
     "max-params"              : [0, 4],
     "max-statements"          : [1, 20],
     "no-alert"                : [2],

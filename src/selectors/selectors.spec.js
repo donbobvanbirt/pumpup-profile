@@ -7,18 +7,18 @@ import {
   popularPhotosSelector,
 } from './index'
 
-const sampleStr = '012345678901234567890123456789'
+const sampleStr      = '012345678901234567890123456789'
 const bioPlaceholder = `${sampleStr}${sampleStr}${sampleStr}${sampleStr}`
 
 const state = {
-  profile: {
-    profileImage: 'imagePlaceholder',
-    name: 'namePlacehold',
-    bio: bioPlaceholder,
+  profile       : {
+    profileImage : 'imagePlaceholder',
+    name         : 'namePlacehold',
+    bio          : bioPlaceholder,
   },
-  userPhotos: [],
-  popularPhotos: [],
-  bio: { truncateBio: false }
+  userPhotos    : [],
+  popularPhotos : [],
+  bio           : { truncateBio: false }
 }
 
 function getState(additionalValues = {}) {

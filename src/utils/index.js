@@ -3,7 +3,7 @@ export function summarizeString(str) {
 
   const arr = str.replace(/\n\s*\n/g, '\n').split(/\n/)
 
-  const line1  = arr[0]
+  const line1 = arr[0]
 
   // returns first 100 characters when no line breaks
   if (line1.length > 99) {
@@ -26,5 +26,6 @@ export function summarizeString(str) {
     return `${line1} [lineBreak] ${line2.slice(0, 80)}`
   }
 
-  return `${line1} [lineBreak] ${line2} [lineBreak] ${line3 ? line3.slice(0, 30) : ''}`
+  return `${line1} [lineBreak] ${line2} [lineBreak] ${line3 ? line3
+    .slice(0, 30) : ''}`
 }

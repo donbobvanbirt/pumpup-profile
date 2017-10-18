@@ -67,7 +67,12 @@ export default class ImageScroll extends Component {
 
 
 
-  // insures that the scroll view bounces to next image
+  /**
+   * insures that the scroll view bounces to next image
+   * @param  {Object[]} e event.
+   * @param  {Object[]} gestureState properties of user's swipe gesture.
+   * @return {Bool[]} always true
+   */ 
   handleRelease(e, gestureState) {
     const { dx, vx }       = gestureState
     const { position }     = this.state

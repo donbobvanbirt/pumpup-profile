@@ -51,8 +51,8 @@ export default StyleSheet.create({
     padding: 1
   },
   imageScroll: {
-    flex: 1,
-    flexDirection: 'row',
+    flex          : 1,
+    flexDirection : 'row',
   },
   spinnerContainer: {
     flex           : 1,

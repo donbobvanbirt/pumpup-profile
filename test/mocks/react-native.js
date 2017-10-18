@@ -22,8 +22,8 @@ export const Dimensions = {
 
 const createComponent = (type) => {
   return createReactClass({
-    displayName: type,
-    propTypes: {
+    displayName : type,
+    propTypes   : {
       children: PropTypes.node
     },
     render() {

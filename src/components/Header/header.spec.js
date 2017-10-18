@@ -4,9 +4,11 @@
 import React from 'react'
 
 import Header from './index'
-import Bio from './Bio'
+import Bio    from './Bio'
 
 const noop = () => {}
+
+
 
 describe('Header', () => {
   const defaultProps = {

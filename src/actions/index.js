@@ -41,8 +41,8 @@ function gotPopularFeedPhotos(data) {
 function togglingBio() {
 
   return {
-    type: 'TOGGLE_BIO',
-    payload: true,
+    type    : 'TOGGLE_BIO',
+    payload : true,
   }
 }
 

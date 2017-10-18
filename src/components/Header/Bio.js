@@ -12,7 +12,11 @@ import styles from '../../styles'
 
 class Bio extends Component {
 
-  // made links out of '#' and '@'
+/**
+ * make links out of '#' and '@'.
+ * @param  {String[]} str Bio to be formatted.
+ * @return {Array[]} formatted into react-native components.
+ */
   formatLinks = (str) => {
     return str
       // keep track of line-breaks

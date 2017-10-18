@@ -21,6 +21,8 @@ describe('reducers', () => {
     })
   })
 
+
+
   describe('profile reducer', () => {
     it('return initial state', () => {
       should.equal(isEmpty(profile(undefined, {})), true)
@@ -31,14 +33,16 @@ describe('reducers', () => {
         profile(
           undefined,
           {
-            type: 'GOT_PROFILE',
-            payload: 'profile placeholder',
+            type    : 'GOT_PROFILE',
+            payload : 'profile placeholder',
           }
         ),
         'profile placeholder'
       )
     })
   })
+
+
 
   describe('userPhotos reducer', () => {
     it('return initial state', () => {
@@ -50,14 +54,16 @@ describe('reducers', () => {
         userPhotos(
           undefined,
           {
-            type: 'GOT_USER_FEED_PHOTOS',
-            payload: 'photos placeholder',
+            type    : 'GOT_USER_FEED_PHOTOS',
+            payload : 'photos placeholder',
           }
         ),
         'photos placeholder'
       )
     })
   })
+
+
 
   describe('popularPhotos reducer', () => {
     it('return initial state', () => {
@@ -69,8 +75,8 @@ describe('reducers', () => {
         popularPhotos(
           undefined,
           {
-            type: 'GOT_POPULAR_FEED_PHOTOS',
-            payload: 'photos placeholder',
+            type    : 'GOT_POPULAR_FEED_PHOTOS',
+            payload : 'photos placeholder',
           }
         ),
         'photos placeholder'

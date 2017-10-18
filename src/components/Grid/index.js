@@ -1,11 +1,13 @@
-import React           from 'react'
-import PropTypes       from 'prop-types'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { View, Image, Dimensions } from 'react-native'
 
 import styles from '../../styles'
 
-const width = Dimensions.get('window').width
+const width    = Dimensions.get('window').width
 const oneThird = width * 0.32
+
+
 
 const Grid = ({ images }) => {
 
@@ -24,6 +26,8 @@ const Grid = ({ images }) => {
     </View>
   )
 }
+
+
 
 Grid.propTypes = {
   images: PropTypes.array.isRequired,

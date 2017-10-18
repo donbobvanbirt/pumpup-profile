@@ -5,6 +5,8 @@ import React from 'react'
 
 import ImageScroll from './index'
 
+
+
 describe('ImageScroll', () => {
   const defaultProps = {
     images: []

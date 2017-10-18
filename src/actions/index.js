@@ -1,10 +1,18 @@
-// max-len exeption for token
-/*eslint max-len: ["error", { "ignoreStrings": true }]*/
-
 import { post } from 'axios'
 
-const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOjI3MDc3OTgsImV4cCI6MTUzOTUzNTI1OTM2OH0.UK2qP1yk9QLk_Bkx1Ly0RPaitRYtec8ojZhzYRc0D-g'
+const token = [
+  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9',
+  'eyJpc3MiOjI3MDc3OTgsImV4cCI6MTUzOTUzNTI1OTM2OH0',
+  'UK2qP1yk9QLk_Bkx1Ly0RPaitRYtec8ojZhzYRc0D-g',
+].join('.')
 
+
+
+/**
+ * gotProfile - sends profile data to store
+ * @param  {Object} data contains profile data
+ * @return {Object} redux call
+ */
 function gotProfile(data) {
 
   return {
@@ -15,7 +23,11 @@ function gotProfile(data) {
 }
 
 
-
+/**
+ * gotUserFeedPhotos - sends user images to store
+ * @param  {Object} data contains user images data
+ * @return {Object} redux call
+ */
 function gotUserFeedPhotos(data) {
 
   return {
@@ -26,7 +38,11 @@ function gotUserFeedPhotos(data) {
 }
 
 
-
+/**
+ * gotPopularFeedPhotos - sends popular photos to store
+ * @param  {Object} data contains popular photos data
+ * @return {Object} redux call
+ */
 function gotPopularFeedPhotos(data) {
 
   return {
@@ -38,6 +54,10 @@ function gotPopularFeedPhotos(data) {
 
 
 
+/**
+ * togglingBio - toggles bio summary mode
+ * @return {Object} redux call
+ */
 function togglingBio() {
 
   return {
@@ -46,6 +66,12 @@ function togglingBio() {
   }
 }
 
+
+
+/**
+ * toggleBio - dispatches bio summary toggle
+ * @return {Func} store dispatch
+ */
 export function toggleBio() {
 
   return (dispatch) => {
@@ -55,6 +81,10 @@ export function toggleBio() {
 
 
 
+/**
+ * getProfile - makes api call to get profile data
+ * @return {Func} store dispatch
+ */
 export function getProfile() {
   return (dispatch) => {
 
@@ -71,6 +101,10 @@ export function getProfile() {
 
 
 
+/**
+ * getUserFeedPhotos - makes api call to get user feed photos
+ * @return {Func} store dispatch
+ */
 export function getUserFeedPhotos() {
 
   return (dispatch) => {
@@ -91,6 +125,10 @@ export function getUserFeedPhotos() {
 
 
 
+/**
+ * getPopularFeedPhotos - makes api call to get popular feed photos
+ * @return {Func} store dispatch
+ */
 export function getPopularFeedPhotos() {
 
   return (dispatch) => {

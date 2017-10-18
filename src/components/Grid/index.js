@@ -9,23 +9,20 @@ const oneThird = width * 0.32
 
 
 
-const Grid = ({ images }) => {
-
-  return (
-    <View style={styles.grid}>
-      {
-        images.map((image) => (
-          <View key={image.objectId} style={styles.gridImageContainer}>
-            <Image
-              source={{ uri: image.thumbnail }}
-              style={{ width: oneThird, height: oneThird }}
-            />
-          </View>
-        ))
-      }
-    </View>
-  )
-}
+const Grid = ({ images }) => (
+  <View style={styles.grid}>
+    {
+      images.map((image) => (
+        <View key={image.objectId} style={styles.gridImageContainer}>
+          <Image
+            source={{ uri: image.thumbnail }}
+            style={{ width: oneThird, height: oneThird }}
+          />
+        </View>
+      ))
+    }
+  </View>
+)
 
 
 

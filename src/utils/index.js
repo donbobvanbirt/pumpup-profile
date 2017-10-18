@@ -1,4 +1,11 @@
 // returns first three lines of string
+
+
+/**
+ * summarizeString - reduces a string down to three lines maximum
+ * @param  {String} str string to be summarized
+ * @return {String} truncated string
+ */
 export function summarizeString(str) {
 
   const arr = str.replace(/\n\s*\n/g, '\n').split(/\n/)

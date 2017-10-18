@@ -14,25 +14,22 @@ const Header = ({
   profileImage,
   toggleBio,
   truncateBio
-}) => {
-
-  return (
-    <View style={styles.header}>
-      <Image
-        source={{ uri: profileImage }}
-        style={styles.profileImage}
+}) => (
+  <View style={styles.header}>
+    <Image
+      source={{ uri: profileImage }}
+      style={styles.profileImage}
+    />
+    <View style={styles.headerContent}>
+      <Text style={styles.name}>{name}</Text>
+      <Bio
+        bio={bio}
+        toggleBio={toggleBio}
+        truncateBio={truncateBio}
       />
-      <View style={styles.headerContent}>
-        <Text style={styles.name}>{name}</Text>
-        <Bio
-          bio={bio}
-          toggleBio={toggleBio}
-          truncateBio={truncateBio}
-        />
-      </View>
     </View>
-  )
-}
+  </View>
+)
 
 Header.propTypes = {
   bio          : PropTypes.string.isRequired,

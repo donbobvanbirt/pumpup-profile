@@ -21,6 +21,15 @@ const state = {
   bio           : { truncateBio: false }
 }
 
+
+/**
+ * getState - provides sample state with default and/or custom data
+ *
+ * @param  {Object} additionalValues
+ * optional values to override default values
+ *
+ * @return {Object} sample Redux state for testing
+ */
 function getState(additionalValues = {}) {
   return {
     ...state,

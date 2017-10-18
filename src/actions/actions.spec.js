@@ -19,8 +19,10 @@ import {
  * returns promise of action from the store
  * allows asyncronous functions to be handled
  *
- * @param  {Object[]} store Mock store
- * @param  {Number[]} interval for setTimeout
+ * TODO: Find a better solution than setTimeout
+ *
+ * @param  {Object} store Mock store
+ * @param  {Number} interval for setTimeout
  *
  * @return {Promise[]} action from the store
  */

@@ -6,6 +6,9 @@ import React from 'react'
 import Header from './index'
 import Bio    from './Bio'
 
+/**
+ * noop - dummy component
+ */
 const noop = () => {}
 
 

@@ -6,6 +6,12 @@ const { window } = jsdom
 
 
 
+
+/**
+ * copyProps - copies props to testing component
+ * @param  {type} src     original source
+ * @param  {type} target  target source
+ */
 function copyProps(src, target) {
   const props = Object.getOwnPropertyNames(src)
     .filter(prop => typeof target[prop] === 'undefined')

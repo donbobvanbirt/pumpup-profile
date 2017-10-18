@@ -5,6 +5,9 @@ import React from 'react'
 
 import Bio from './Bio'
 
+/**
+ * noop - dummy component
+ */
 const noop = () => {}
 
 

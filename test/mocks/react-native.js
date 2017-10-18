@@ -20,6 +20,11 @@ export const Dimensions = {
 
 
 
+/**
+ * createComponent - creates sample React component for testing
+ * @param  {String[]} type type of component
+ * @return {Class[]} React class
+ */
 const createComponent = (type) => {
   return createReactClass({
     displayName : type,

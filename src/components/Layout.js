@@ -26,6 +26,10 @@ import {
 
 class Layout extends React.Component {
 
+
+  /**
+   * componentDidMount - calls actions after component mounts
+   */
   componentDidMount() {
 
     const {
@@ -41,6 +45,10 @@ class Layout extends React.Component {
 
 
 
+  /**
+   * render - renders Layout component
+   * @return {Node[]} React instance
+   */
   render() {
 
     const {
@@ -95,7 +103,12 @@ Layout.propTypes = {
 
 
 
-const mapDispatchToProps = dispatch => ({
+/**
+ * mapDispatchToProps - sets actions so they can be used in Redux
+ * @param  {func[]} dispatch redux store function
+ * @return {Object} containing action function
+ */
+const mapDispatchToProps = (dispatch) => ({
   getProfile() {
     dispatch(getProfile())
   },
@@ -110,6 +123,11 @@ const mapDispatchToProps = dispatch => ({
   },
 })
 
+/**
+ * mapStateToProps - connects component to Redux store
+ * @param  {Object} state Redux state
+ * @return {Object} objects from state
+ */
 const mapStateToProps = (state) => ({
   profile       : profileSelector(state),
   userPhotos    : userPhotosSelector(state),

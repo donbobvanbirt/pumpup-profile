@@ -9,6 +9,14 @@ const reactNativePath    = 'react-native/react-native-implementation.js'
 
 
 
+/**
+ * anonymous function - compiles modules so that they
+ * are compatible with testing environment
+ *
+ * @param  {Object} module
+ * @param  {String} fileName file name/location of module
+ * @return {Object} compiled module
+ */
 require.extensions['.js'] = function (module, fileName) {
 
   if (fileName.indexOf(`${reactNativeModPath}${reactNativePath}`) >= 0) {

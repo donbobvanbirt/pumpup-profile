@@ -12,11 +12,11 @@ import styles from '../../styles'
 
 class Bio extends Component {
 
-/**
- * make links out of '#' and '@'.
- * @param  {String[]} str Bio to be formatted.
- * @return {Array[]} formatted into react-native components.
- */
+  /**
+   * formatLinks make links out of '#' and '@'.
+   * @param  {String} str Bio to be formatted.
+   * @return {Array[]} formatted into react-native components.
+   */
   formatLinks = (str) => {
     return str
       // keep track of line-breaks
@@ -46,6 +46,10 @@ class Bio extends Component {
 
 
 
+  /**
+   * render - renders Bio component
+   * @return {Node[]} React instance
+   */
   render() {
     const { bio, toggleBio, truncateBio } = this.props
     const formattedBio = this.formatLinks(bio)

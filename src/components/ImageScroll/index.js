@@ -57,6 +57,10 @@ export default class ImageScroll extends Component {
     position  : 0,
   }
 
+
+  /**
+   * componentWillMount - sets panResponder before component mounts
+   */
   componentWillMount() {
     // set function to trigger after scroll release
     this.panResponder = PanResponder.create({
@@ -68,11 +72,12 @@ export default class ImageScroll extends Component {
 
 
   /**
-   * insures that the scroll view bounces to next image
-   * @param  {Object[]} e event.
-   * @param  {Object[]} gestureState properties of user's swipe gesture.
+   * handleRelease insures that the scroll view bounces to next image
+   *
+   * @param  {Object} e event.
+   * @param  {Object} gestureState properties of user's swipe gesture.
    * @return {Bool[]} always true
-   */ 
+   */
   handleRelease(e, gestureState) {
     const { dx, vx }       = gestureState
     const { position }     = this.state
@@ -98,7 +103,10 @@ export default class ImageScroll extends Component {
 
 
 
-  // handle scrolling to specified image
+  /**
+   * handleScroll - handles scrolling to specified image
+   * @param  {Number} index possition at which to scroll to
+   */
   handleScroll(index) {
     // do nothing is index is negative
     if (index < 0) { return }
@@ -114,12 +122,20 @@ export default class ImageScroll extends Component {
 
 
 
+  /**
+   * handleRef - sets ScrollView ref
+   * @param  {Object} ref ScrollView ref
+   */
   handleRef(ref) {
     this.scrollRef = ref
   }
 
 
 
+  /**
+   * render - renders ImageScroll component
+   * @return {Node[]} React instance
+   */
   render() {
     const { position } = this.state
     const { images }   = this.props
